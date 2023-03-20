@@ -1,0 +1,7 @@
+CREATE TABLE Magazines (
+    PubID VARCHAR(255) NOT NULL,
+    Issue VARCHAR(255) NOT NULL,
+    Title VARCHAR(255) NOT NULL,
+
+    PRIMARY KEY (PubID)
+)
