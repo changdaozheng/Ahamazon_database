@@ -3,5 +3,5 @@ CREATE TABLE ComplaintStatus (
     ModifiedDate DATETIME NOT NULL, /*Replaces Date*/
     ComplaintStatus VARCHAR(255) NOT NULL, /*Replaces State*/
     
-    PRIMARY KEY (EmployeeID, ModifiedDate)
+    PRIMARY KEY (ComplaintID, ModifiedDate)
 )
