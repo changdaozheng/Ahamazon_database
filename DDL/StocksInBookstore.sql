@@ -5,5 +5,7 @@ CREATE TABLE StocksInBookstore (
     StockQty INT NOT NULL,
     StockPrice DECIMAL(18,2), 
 
-    PRIMARY KEY (StockID, BookstoreID, PubID)
+    PRIMARY KEY (StockID, BookstoreID, PubID),
+    FOREIGN KEY (BookstoreID) REFERENCES Bookstore(BookstoreID), 
+    FOREIGN KEY (PubID) REFERENCES Publications(PubId)
 )

@@ -5,4 +5,5 @@ CREATE TABLE Orders (
     ShippingAddress VARCHAR(255) NOT NULL,
 
     PRIMARY KEY (OrderID)
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
 )

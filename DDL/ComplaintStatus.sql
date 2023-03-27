@@ -4,4 +4,5 @@ CREATE TABLE ComplaintStatus (
     ComplaintStatus VARCHAR(255) NOT NULL, /*Replaces State*/
     
     PRIMARY KEY (ComplaintID, ModifiedDate)
+    FOREIGN KEY (ComplaintID) REFERENCES Complaints(ComplaintID)
 )
