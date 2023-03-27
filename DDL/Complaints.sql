@@ -7,4 +7,5 @@ CREATE TABLE Complaints (
     EID VARCHAR(255),
 
     PRIMARY KEY (ComplaintID)
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
 )

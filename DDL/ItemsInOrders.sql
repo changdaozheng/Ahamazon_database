@@ -1,7 +1,7 @@
 CREATE TABLE ItemsInOrder (
     ItemID VARCHAR(255) NOT NULL,
     StockID VARCHAR(255) NOT NULL,
-    OrderId VARCHAR(255) NOT NULL,
+    OrderID VARCHAR(255) NOT NULL,
     BookstoreID VARCHAR(255) NOT NULL,
     PubID VARCHAR(255) NOT NULL,
     DeliveryDate DATETIME NOT NULL,
@@ -13,4 +13,9 @@ CREATE TABLE ItemsInOrder (
     Rating INT,
 
     PRIMARY KEY (ItemID, StockID, OrderID, BookstoreID, PubID)
+    FOREIGN KEY (StockID) REFERENCES StocksInBookstore(StockID),
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+    FOREIGN KEY (BookstoreID) REFERENCES Bookstore(BookstoreID),
+    FOREIGN KEY (PubId) REFERENCES Publications(PubId),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
 )

@@ -3,4 +3,5 @@ CREATE TABLE Books (
     Title VARCHAR(255) NOT NULL,
 
     PRIMARY KEY (PubID)
+    FOREIGN KEY (PubID) REFERENCES Publications(PubId)
 )

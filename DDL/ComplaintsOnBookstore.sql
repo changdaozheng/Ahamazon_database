@@ -3,4 +3,6 @@ CREATE TABLE ComplaintsOnBookstore (
     BookstoreID VARCHAR(255) NOT NULL,
     
     PRIMARY KEY (ComplaintID),
+    FOREIGN KEY (ComplaintID) REFERENCES Complaints(ComplaintID),
+    FOREIGN KEY (BookstoreID) REFERENCES Bookstore(BookstoreID),
 )
