@@ -2,13 +2,13 @@
 
 WITH monthly_sales_by_publication AS (
     SELECT PubID, 
-        DATEADD(month, DATEDIFF(month, 0, orderDatetime)) AS month, /*orderDatetime replaces Date-time in the orders table*/
+        DATEADD(month, DATEDIFF(month, 0, orderDatetime), 0) AS month, /*orderDatetime replaces Date-time in the orders table*/
         COUNT(itemID) AS num_orders 
     FROM itemsInOrder AS IinO
     JOIN  orders AS o 
         ON IinO.OrderID = o.OrderID
     GROUP BY PubID
-        AND DATEADD(month, DATEDIFF(month, 0, orderDatetime)) /*gives first day of the month*/
+        AND DATEADD(month, DATEDIFF(month, 0, orderDatetime), 0) /*gives first day of the month*/
 ), 
 
 WITH growth AS (
