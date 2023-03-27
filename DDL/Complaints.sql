@@ -4,6 +4,7 @@ CREATE TABLE Complaints (
     ComplaintBody VARCHAR(255) NOT NULL, /*Replaces Text*/
     FiledDatetime DATETIME NOT NULL,
     HandledDatetime DATETIME,
+    EID VARCHAR(255),
 
     PRIMARY KEY (ComplaintID)
 )
