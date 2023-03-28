@@ -6,14 +6,12 @@ WITH max_complaints AS (
 ),
 
 purchases AS (
-  SELECT c.CustomerID, num_complaints, s.StockID, s.StockPrice, MAX(s.StockPrice) OVER (PARTITION BY c.CustomerID) AS CustomerMaxPurchase
+  SELECT c.CustomerID, num_complaints, iio.StockID, iio.ItemPrice, MAX(iio.ItemPrice) OVER (PARTITION BY c.CustomerID) AS CustomerMaxPurchase
   FROM max_complaints AS c
-    JOIN Orders AS o ON c.CustomerID = o.CustomerID
-    JOIN ItemsInOrder AS iio ON o.OrderID = iio.OrderID
-    JOIN StocksInBookstore AS s ON iio.StockID = s.StockID
+    JOIN ItemsInOrder AS iio ON c.CustomerID = iio.CustomerID
 )
 
-SELECT CustomerID, num_complaints, StockID, StockPrice
+SELECT CustomerID, num_complaints, StockID, itemPrice
 FROM purchases 
-WHERE StockPrice = CustomerMaxPurchase
+WHERE itemPrice = CustomerMaxPurchase
 ORDER BY num_complaints DESC
