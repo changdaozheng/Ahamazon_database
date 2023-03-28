@@ -1,4 +1,4 @@
-SELECT X.BookstoreID, SUM(ItemPrice * ItemQty) AS TotalRevenue
+SELECT TOP 1 X.BookstoreID, SUM(ItemPrice * ItemQty) AS TotalRevenue
 FROM ItemsInOrder AS X INNER JOIN OrderStatus AS Y ON 
 	Y.ItemID = X.ItemID
 		AND Y.StockID = X.StockID
