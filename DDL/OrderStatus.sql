@@ -7,7 +7,7 @@ CREATE TABLE OrderStatus (
     StatusDatetime DATETIME NOT NULL, /*Replaces Date*/
     OrderState VARCHAR(255) NOT NULL, /*Replaces State*/
     
-    PRIMARY KEY (OrderId, ItemID, StockID, PubID, BookstoreID, StatusDatetime)
+    PRIMARY KEY (OrderId, ItemID, StockID, PubID, BookstoreID, StatusDatetime),
     FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
     FOREIGN KEY (ItemID) REFERENCES ItemsInOrder(ItemID),
     FOREIGN KEY (StockID) REFERENCES StocksInBookstore(StockID),

@@ -6,7 +6,7 @@ CREATE TABLE Complaints (
     HandledDatetime DATETIME,
     EmployeeID VARCHAR(255),
 
-    PRIMARY KEY (ComplaintID)
-    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
-    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)
+    PRIMARY KEY (ComplaintID),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
+    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
 )

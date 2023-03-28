@@ -6,9 +6,9 @@ WITH aug_prices_by_bookstore AS (
     SELECT BookstoreID,
             Price, 
             CASE
-                WHEN (startDate BETWEEN augStart AND augEnd) AND (endDate BETWEEN augStart AND augEnd) THEN DATEDIFF(day, startDate, endDate) + 1
+                WHEN (startDate BETWEEN augStart AND augEnd) AND (endDate BETWEEN augStart AND augEnd) THEN DATEDIFF(day, startDate, endDate)
                 WHEN (startDate BETWEEN augStart AND augEnd) AND (endDate > augEnd) THEN DATEDIFF(day, startDate, augEnd) + 1
-                WHEN (startDate < augStart) AND (endDate BETWEEN augStart AND augEnd) THEN DATEDIFF(day, augStart, endDate) + 1
+                WHEN (startDate < augStart) AND (endDate BETWEEN augStart AND augEnd) THEN DATEDIFF(day, augStart, endDate) 
                 WHEN (startDate < augStart) AND (endDate > augEnd) THEN DATEDIFF(day, augStart, augEnd) + 1
             END AS num_days, 
     FROM PriceHistory AS ph
