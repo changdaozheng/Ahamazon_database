@@ -13,7 +13,7 @@ CREATE TABLE ItemsInOrder (
     Rating INT,
 
     PRIMARY KEY (ItemID, StockID, OrderID, BookstoreID, PubID),
-    FOREIGN KEY (StockID) REFERENCES StocksInBookstore(StockID),
+    FOREIGN KEY (StockID, BookstoreID, PubID) REFERENCES StocksInBookstore(StockID, BookstoreID, PubID),
     FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
     FOREIGN KEY (BookstoreID) REFERENCES Bookstore(BookstoreID),
     FOREIGN KEY (PubId) REFERENCES Publications(PubId),
