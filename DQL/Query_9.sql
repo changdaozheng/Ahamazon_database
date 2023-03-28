@@ -22,7 +22,7 @@ WITH growth AS (
     WHERE DATEADD(month, -1, a.month) == b.month /*Matching a month and the previous month, ignores first months (no previous months)*/
 )
 
-SELECT DISTiNCT PubID
+SELECT DISTINCT PubID
 FROM growth AS curr
 JOIN growth AS minus1
     ON curr.PubID == minus1.PubID
