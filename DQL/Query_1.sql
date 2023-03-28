@@ -14,7 +14,7 @@ WITH aug_prices_by_bookstore AS (
     FROM PriceHistory AS ph
     JOIN Books
         ON ph.PubID = Books.PubID
-    WHERE Books.Title = 'Harry Potter Finale'
+    WHERE Books.Title = 'Harry Porter Finale'
 ), 
 
 avg_aug_price_by_bookstore AS (
@@ -24,5 +24,5 @@ avg_aug_price_by_bookstore AS (
     GROUP BY BookstoreID
 )
 
-SELECT AVG(bookstore_avg_price) as avg_price 
+SELECT CAST(AVG(bookstore_avg_price) AS DECIMAL(18,2)) AS avg_price 
 FROM avg_aug_price_by_bookstore
