@@ -1,11 +1,11 @@
 SELECT IO.PubID, AVG(IO.Rating) AS Avg_Rating
-FROM Items-In-Orders AS IO, 
+FROM ItemsInOrder AS IO, 
     (SELECT PubID
-        FROM Items-In-Orders 
+        FROM ItemsInOrder 
         WHERE Rating = 5
-        AND Date-time BETWEEN ‘1 August 2022’ AND ‘31 August 2022’
+        AND OrderDatetime BETWEEN '1 August 2022' AND '31 August 2022'
         GROUP BY PubID
-        HAVING COUNT(*) >= 10) AS RES
+        HAVING COUNT(Rating) >= 10) AS RES
 WHERE IO.PubID = RES.PubID
 GROUP BY IO.PubID
 ORDER BY Avg_Rating

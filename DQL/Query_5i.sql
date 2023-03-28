@@ -1,3 +1,3 @@
 SELECT PubID
-FROM Publication
-WHERE Publisher = “Nanyang Publisher Company”
+FROM Publications
+WHERE Publisher = 'Nanyang Publisher Company'
