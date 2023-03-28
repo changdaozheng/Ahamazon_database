@@ -7,7 +7,7 @@ CREATE TABLE PriceHistory (
     Price DECIMAL(18,2) NOT NULL,
 
     PRIMARY KEY (BookstoreID, PubID, StockID, StartDate, EndDate, Price),
-    FOREIGN KEY (StockID) REFERENCES StocksInBookstore(StockID),
+    FOREIGN KEY (StockID, BookstoreID, PubID) REFERENCES StocksInBookstore(StockID, BookstoreID, PubID),
     FOREIGN KEY (BookstoreID) REFERENCES Bookstore(BookstoreID),
     FOREIGN KEY (PubId) REFERENCES Publications(PubId),
 )
