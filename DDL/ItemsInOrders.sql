@@ -1,10 +1,10 @@
 CREATE TABLE ItemsInOrder (
+    OrderID VARCHAR(255) NOT NULL,
     ItemID VARCHAR(255) NOT NULL,
     StockID VARCHAR(255) NOT NULL,
-    OrderID VARCHAR(255) NOT NULL,
     BookstoreID VARCHAR(255) NOT NULL,
     PubID VARCHAR(255) NOT NULL,
-    DeliveryDate DATETIME NOT NULL,
+    DeliveryDatetime DATETIME,
     ItemPrice DECIMAL(18,2) NOT NULL,
     ItemQty INT NOT NULL,
     CustomerID VARCHAR(255) NOT NULL,
