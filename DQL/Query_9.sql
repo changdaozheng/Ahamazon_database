@@ -1,20 +1,24 @@
 /*9. Find publications that are increasingly being purchased over at least 3 months.*/
 
 WITH monthly_sales_by_publication AS (
-    SELECT PubID, 
-        DATEADD(month, DATEDIFF(month, 0, o.OrderDatetime), 0) AS month, /*orderDatetime replaces Date-time in the orders table*/
-        COUNT(itemID) AS num_orders 
+    SELECT IinO.PubID, 
+        DATEADD(month, DATEDIFF(month, 0, IinO.DeliveryDatetime), 0) AS month, 
+        SUM(ItemQty) AS num_orders 
     FROM itemsInOrder AS IinO
-    JOIN  orders AS o 
+    JOIN orders AS o 
         ON IinO.OrderID = o.OrderID
-    GROUP BY PubID
-        , DATEADD(month, DATEDIFF(month, 0, o.OrderDatetime), 0) /*gives first day of the month*/
+    JOIN OrderStatus AS os
+        ON os.OrderId = o.OrderID
+    WHERE IinO.DeliveryDatetime IS NOT NULL
+        AND os.OrderState = 'Delivered'
+    GROUP BY IinO.PubID
+        , DATEADD(month, DATEDIFF(month, 0, IinO.DeliveryDatetime), 0) /*gives first day of the month*/
 ),
 
 growth AS (
     SELECT a.PubID, 
         a.month, 
-        (a.num_orders - b.num_orders) / b.num_orders AS momIncrease
+        (a.num_orders - b.num_orders) AS momIncrease
 
     FROM monthly_sales_by_publication AS a 
     JOIN monthly_sales_by_publication AS b 
