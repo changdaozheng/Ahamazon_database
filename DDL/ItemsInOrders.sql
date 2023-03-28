@@ -12,7 +12,7 @@ CREATE TABLE ItemsInOrder (
     Comment VARCHAR(255),
     Rating INT,
 
-    PRIMARY KEY (ItemID, StockID, OrderID, BookstoreID, PubID)
+    PRIMARY KEY (ItemID, StockID, OrderID, BookstoreID, PubID),
     FOREIGN KEY (StockID) REFERENCES StocksInBookstore(StockID),
     FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
     FOREIGN KEY (BookstoreID) REFERENCES Bookstore(BookstoreID),

@@ -3,6 +3,6 @@ CREATE TABLE ComplaintStatus (
     ModifiedDate DATETIME NOT NULL, /*Replaces Date*/
     ComplaintState VARCHAR(255) NOT NULL, /*Replaces State*/
     
-    PRIMARY KEY (ComplaintID, ModifiedDate)
+    PRIMARY KEY (ComplaintID, ModifiedDate),
     FOREIGN KEY (ComplaintID) REFERENCES Complaints(ComplaintID)
 )

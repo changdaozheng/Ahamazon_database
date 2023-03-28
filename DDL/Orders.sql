@@ -4,6 +4,6 @@ CREATE TABLE Orders (
     OrderDatetime DATETIME, /*Replaces Date-time*/
     ShippingAddress VARCHAR(255) NOT NULL,
 
-    PRIMARY KEY (OrderID)
+    PRIMARY KEY (OrderID),
     FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
 )
