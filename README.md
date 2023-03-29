@@ -18,7 +18,6 @@
 ```tree
 .
 ├── DDL     #Data Definition Language (CREATE, DROP, ALTER, TRUNCATE, COMMENT, RENAME)
-├── DML     #Data Manipulation Language (INSERT, UPDATE, DELETE, LOCK)
 └── DQL     #Data Query Language (SELECT)
 
 ```
