@@ -14,6 +14,6 @@ min_latency AS (
     FROM employee_avg
 )
 
-SELECT EmployeeID, EmployeeLatency, LowestLatency
+SELECT EmployeeID, EmployeeLatency
 FROM min_latency 
 WHERE EmployeeLatency = LowestLatency
