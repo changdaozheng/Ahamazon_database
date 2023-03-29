@@ -1,4 +1,5 @@
-/*Find the average price of “Harry Porter Finale” on Ahamazon from 1 August 2022 to 31 August 2022. */
+-- 1. Find the average price of “Harry Porter Finale” on Ahamazon from 1 August 2022 to 31 August 2022. 
+
 DECLARE @augStart DATE = '2022-08-01';
 DECLARE @augEnd DATE = '2022-08-31';
 

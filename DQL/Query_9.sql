@@ -1,4 +1,4 @@
-/*9. Find publications that are increasingly being purchased over at least 3 months.*/
+-- 9. Find publications that are increasingly being purchased over at least 3 months.
 
 WITH monthly_sales_by_publication AS (
     SELECT IinO.PubID, 

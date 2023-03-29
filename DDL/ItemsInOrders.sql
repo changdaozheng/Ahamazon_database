@@ -8,7 +8,7 @@ CREATE TABLE ItemsInOrder (
     ItemPrice DECIMAL(18,2) NOT NULL,
     ItemQty INT NOT NULL,
     CustomerID VARCHAR(255) NOT NULL,
-    OrderDatetime DATETIME NOT NULL, /*Replace Datetime*/
+    OrderDatetime DATETIME NOT NULL, 
     Comment VARCHAR(255),
     Rating INT,
 

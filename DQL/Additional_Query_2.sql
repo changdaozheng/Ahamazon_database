@@ -1,4 +1,4 @@
-/* Find the TOP 3 bookstores with the greatest total stock value */
+-- Additional 2. Find the TOP 3 bookstores with the greatest total stock value
 
 SELECT TOP 3 
     BookstoreID,

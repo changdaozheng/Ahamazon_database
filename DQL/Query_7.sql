@@ -1,17 +1,23 @@
+-- 7. For customers that made the most number of complaints, find the most expensive publication he/she has ever purchased.
+
 WITH max_complaints AS (
-  SELECT TOP 5 CustomerID, COUNT(ComplaintID) AS num_complaints
+  SELECT CustomerID, COUNT(ComplaintID) AS numComplaints
   FROM Complaints
   GROUP BY CustomerID
-  ORDER BY num_complaints DESC
 ),
 
 purchases AS (
-  SELECT c.CustomerID, num_complaints, iio.StockID, iio.ItemPrice, MAX(iio.ItemPrice) OVER (PARTITION BY c.CustomerID) AS CustomerMaxPurchase
+  SELECT c.CustomerID, 
+    numComplaints, 
+    MAX(numComplaints) OVER() AS MaxComplaints,
+    iio.StockID, 
+    iio.ItemPrice, 
+    MAX(iio.ItemPrice) OVER (PARTITION BY c.CustomerID) AS CustomerMaxPurchase
   FROM max_complaints AS c
     JOIN ItemsInOrder AS iio ON c.CustomerID = iio.CustomerID
 )
 
-SELECT CustomerID, num_complaints, StockID, itemPrice
+SELECT CustomerID, numComplaints, StockID, itemPrice
 FROM purchases 
-WHERE itemPrice = CustomerMaxPurchase
-ORDER BY num_complaints DESC
+WHERE  numComplaints = MaxComplaints 
+  AND itemPrice = CustomerMaxPurchase

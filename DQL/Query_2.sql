@@ -1,3 +1,4 @@
+-- 2. Find publications that received at least 10 ratings of “5” in August 2022, and rank them by their average ratings. 
 
 WITH aug_ratings AS (
     SELECT PubID
