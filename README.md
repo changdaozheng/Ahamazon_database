@@ -1,4 +1,6 @@
 # SC2207 Lab Project
+This repo contains our submission for NTU SC2207 Introduction to Databases. It contains table creation scripts and required queries for a mock e-commerce platform, Ahamazon.
+
 ## Lab Group Z42 Team 1
 
 | Members               | 
